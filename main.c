@@ -9,9 +9,7 @@ int main()
     solution.headerAddr = (VOID*)malloc(solution.memSize);
     ASSERT_NULL_PTR(solution.headerAddr);
     solution.dynamicAddr[0] = &solution.headerAddr;
-    WORD32 *i[160] ;
-    *i = &solution.dynamicAddr[0];
-    solution.dynamicAddr[1] = solution.dynamicAddr[0] + sizeof(i);
+    solution.dynamicAddr[1] = solution.dynamicAddr[0] + sizeof(solution.dynamicAddr[0]);
     PrintPointerAddr(solution.dynamicAddr[1]);
     PrintPointerAddr(solution.dynamicAddr[0]);
     PrintPointerAddr(&solution.headerAddr);
