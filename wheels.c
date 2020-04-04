@@ -11,7 +11,7 @@ VOID InitSolutionStruct(Solution *solution, WORD32 size)
     solution->memSize = size;
     solution->memLeft = solution->memSize;
     solution->headerAddr = (VOID*)malloc(size);
-    solution->dynamicAddr[0] = &solution->headerAddr;
+    solution->dynamicAddr[0] = solution->headerAddr;
 }
 
 VOID DestructSolution(Solution *solution)
@@ -23,10 +23,11 @@ VOID DestructSolution(Solution *solution)
     }
 }
 
-BOOL AllocMemoryWithSize(Solution *solution, WORD32 size)
+BOOL AllocMemoryWithSize(Solution *solution, WORD32 size, void *srcPtr)
 {
     if(solution->memAddrNum >= DYN_MEM_SEG_NUM || solution->memLeft < size) return false;
     solution->memSegSize[solution->memAddrNum] = size;
+    memcpy(solution->dynamicAddr[solution->memAddrNum], srcPtr, size);
     solution->dynamicAddr[solution->memAddrNum + 1] = solution->dynamicAddr[solution->memAddrNum] + size;
     solution->memAddrNum++;
     solution->memLeft -= size;

@@ -19,4 +19,4 @@ typedef struct Solution
 VOID PrintPointerAddr(VOID *pointer);
 VOID InitSolutionStruct(Solution *solution, WORD32 size);
 VOID DestructSolution(Solution *solution);
-BOOL AllocMemoryWithSize(Solution *solution, WORD32 size);
+BOOL AllocMemoryWithSize(Solution *solution, WORD32 size, void *srcPtr);

@@ -5,7 +5,7 @@
 
 
 #define DEFAULT_MEM_SIZE    (1024 * 1024)
-#define DYN_MEM_SEG_NUM     (8)
+#define DYN_MEM_SEG_NUM     (16)
 
 #define ASSERT_NULL_PTR(p)  if(NULL == p) return 0;
 #define FREE_PTR(p)         free(p); p = NULL;
