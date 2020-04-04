@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory.h>
+#include <stdbool.h>
 
 
 #define DEFAULT_MEM_SIZE    (1024 * 1024)
@@ -16,5 +17,6 @@ typedef signed int        SWORD16;
 typedef signed char       SCHAR;
 typedef unsigned char     UCHAR;
 typedef void              VOID;
+typedef bool              BOOL;
 
 typedef VOID* (*fHandle)(VOID*);
